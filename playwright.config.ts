@@ -4,7 +4,9 @@ export default defineConfig({
   testDir: './tests',
   reporter: [['html', { open: 'never' }]],
   use: {
-    headless: true,
-    trace: 'on-first-retry',
-  },
+  headless: true,
+  trace: 'on-first-retry',
+  screenshot: 'only-on-failure',
+  video: 'retain-on-failure',
+},
 });
