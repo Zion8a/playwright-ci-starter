@@ -1,0 +1,26 @@
+{
+  "name": "playwright-ci-starter",
+  "version": "1.0.0",
+  "description": "playwright + ci starter",
+  "main": "index.js",
+  "scripts": {
+  "test": "playwright test",
+  "test:headed": "playwright test --headed",
+  "report": "playwright show-report"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zion8a/playwright-ci-starter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Zion8a/playwright-ci-starter/issues"
+  },
+  "homepage": "https://github.com/Zion8a/playwright-ci-starter#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}
