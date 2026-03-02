@@ -7,6 +7,11 @@ on:
 jobs:
   playwright:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,21 +27,21 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Run Playwright tests (${{ matrix.browser }})
+        run: npx playwright test --project=${{ matrix.browser }}
 
-      - name: Upload HTML report
+      - name: Upload HTML report (${{ matrix.browser }})
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: playwright-report
+          name: playwright-report-${{ matrix.browser }}
           path: playwright-report
           retention-days: 7
 
-      - name: Upload test results
+      - name: Upload test results (${{ matrix.browser }})
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: test-results
+          name: test-results-${{ matrix.browser }}
           path: test-results
           retention-days: 7
