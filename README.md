@@ -9,6 +9,11 @@ Minimal Playwright UI-test setup med GitHub Actions (CI) och HTML-report som art
 - HTML-report (`playwright-report/`) genereras vid körning
 - CI kör tester vid push och pull request och laddar upp report som artifact
 
+## CI
+- GitHub Actions kör Playwright-tester vid push och pull request.
+- Tester körs i **Chromium och Firefox** (matrix).
+- HTML-report + test-results laddas upp som artifacts.
+
 ## Kör lokalt
 ```bash
 npm install
