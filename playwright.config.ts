@@ -1,12 +1,16 @@
-import { defineConfig } from '@playwright/test';
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
   reporter: [['html', { open: 'never' }]],
   use: {
-  headless: true,
-  trace: 'on-first-retry',
-  screenshot: 'only-on-failure',
-  video: 'retain-on-failure',
-},
+    headless: true,
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure',
+  },
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+  ],
 });
